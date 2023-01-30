@@ -1,13 +1,27 @@
 import React from "react";
 // import './styles/staffmgmt.css';
 import { useNavigate } from "react-router-dom";
-import Axios from "axios";
-import { useState } from 'react'
+import axios from "axios";
+import { useState, useEffect } from 'react'
 
 //Post Request
 
 const StaffManagement = () => {
     const navigate = useNavigate();
+    const [staffs,setStaffs] = useState([]);
+
+    useEffect(() => {
+        async function GetStaffData() {
+          try {
+            const res = await axios.get("https://localhost:7215/api/staff");
+            console.log(res);
+            setStaffs(res.data);
+          }catch(err){
+            console.log(err);
+          }
+        }
+        GetStaffData();
+      },[])
     
     return (
         <>
@@ -18,13 +32,16 @@ const StaffManagement = () => {
                 <div class="col-md-6">
                     <label >Staff Identification<br/></label>  </div>  </div>
                     <label for="inputRegistrationNo" style={{align: "left"}}class="form-label">Staff ID&ensp;&ensp;  </label>
-                 <select>   <option selected>Choose...</option>
-                    <option>...</option>
-                 </select>
-                              
+                 <select className ="button" name="StaffIDs" id="StaffId" >
+                    {staffs.map((record) => (
+                        <option key={record.tblStaffID} value={record.tblStaffID} id="tblStaffId">
+                        {record.tblStaffID}
+                        </option>
+                    ))}
+                </select>   
           
             <div>
-                <label><br/>Date and Time </label>
+                <label><br/>Date </label>
                 <input type="date" id="date"  name="date" />
             </div>
             <div>

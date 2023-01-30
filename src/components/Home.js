@@ -7,7 +7,7 @@ function Home() {
   return (
     <Container>
       <Typography variant="h1" align="center" color="blue" sx={{ fontWeight: "bold", textDecoration: "underline" }}>
-        M<span style={{ color: 'red' }}>o</span>bile
+        M<span style={{ color: 'red' }}>o</span>bil
       </Typography>
     </Container>
   )

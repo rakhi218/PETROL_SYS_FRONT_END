@@ -55,7 +55,7 @@ function MasterDelete() {
     async function deleteForm() {
         const obj = {
             tblPumpID: document.getElementById("PumpNumber").value,
-            tblStaffID : document.getElementById("StaffID").value,
+            tblStaffId : document.getElementById("StaffID").value,
             tblDate2 : document.getElementById("PumpDate2").value,
             tblFinalLitres : document.getElementById("PumpLastReading").value,
             tblInitialLitres : document.getElementById("PumpInitialReading").value,

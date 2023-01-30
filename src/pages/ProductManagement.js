@@ -35,6 +35,8 @@ async function submitdata(event) {
 
 function ProductManagement() {
 
+  const [unlockClicked ,setUnlockClicked] = useState("true");
+
   useEffect(() => {
     async function axiosReq(){
       try {
@@ -60,10 +62,8 @@ function ProductManagement() {
     
   }
 
-  const [unlockClicked ,setUnlockClicked] = useState("true");
-  
   return (
-	<div>
+    <div>
 	  <h1 className= "heading" align = "center">Product Management </h1>
       <form onSubmit={submitdata} id="PumpForm">
       <label>Unit Cost per Litre of AGO </label>
