@@ -74,17 +74,38 @@ async function SuspendStaff() {
 }
 
 async function SaveInfo() {
-
+  try {
+    const obj = {
+      tblStaffID : singleId,
+      tblFirstName : document.getElementById("firstname").value,
+      tblSurname : document.getElementById("surname").value,
+      tblSex : sex,
+      tblAge : document.getElementById("Age").value,
+      tblAddress : document.getElementById("adress").value,
+      tblPhoneNo : document.getElementById("phone").value,
+      tblNextofKin : document.getElementById("kin_name").value,
+      tblNOKAddress : document.getElementById("kin_address").value,
+      tblNOKPhone : document.getElementById("kin_phone").value,
+      tblStaffGuarantor : document.getElementById("gurantor_name").value,
+      tblStaffGuarantorAddress : document.getElementById("gurantor_address").value,
+      tblStaffGuarantorPhone : document.getElementById("gurantor_phone").value
+    }
+    const res = await axios.put("https://localhost:7215/api/SeniorStaff",obj);
+    console.log(res);
+  }catch(err){
+    console.log(err);
+  }
 }
 
 async function EmployStaff() {
-  
+  SetAddEmploy(!addEmploy);
 }
 
   const [staffid, setStaffid] = useState([]);
   const [staffs,setStaffs] = useState([]);
   const [editStaffs,setEditStaffs] = useState(true);
   const [singleId,SetSingleStaffID] = useState();
+  const [addEmploy,SetAddEmploy] = useState(false);
 
   const [sex, setSex] = React.useState('');
 
@@ -164,7 +185,7 @@ async function EmployStaff() {
           <BorderedSection title="Management">
             <Container maxWidth="sm">
               <Stack direction="row" spacing={3}>
-                <Button type="button" variant="contained" disabled={false} onClick={EmployStaff}>
+                <Button type="button" variant="contained" disabled={!editStaffs} onClick={EmployStaff}>
                   Employ Staff
                 </Button>
                 <Button type="button" variant="contained" disabled={false} onClick={EditStaff}>
@@ -173,10 +194,10 @@ async function EmployStaff() {
                 <Button type="button" variant="contained" disabled={false} onClick={SaveInfo}>
                   Save Staff Information
                 </Button>
-                <Button type="button" variant="contained" color="error" disabled={false} onClick={RetrenchStaff}>
+                <Button type="button" variant="contained" color="error" disabled={!editStaffs} onClick={RetrenchStaff}>
                   Retrench Staff
                 </Button>
-                <Button type="button" variant="contained" color="error" disabled={false} onClick={SuspendStaff}>
+                <Button type="button" variant="contained" color="error" disabled={!editStaffs} onClick={SuspendStaff}>
                   Suspend Staff
                 </Button>
               </Stack>
