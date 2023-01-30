@@ -17,6 +17,7 @@ import StaffManagement from './components/StaffManagement';
 import DeleteStaffRecord from './pages/DeleteStaffRecord';
 import MasterDelete from './pages/MasterDelete';
 import ProductManagement from './pages/ProductManagement';
+import PumpsMangement from './pages/PumpsManagement';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,6 +33,7 @@ const router = createBrowserRouter(
         <Route path = "/DeleteStaffRecord" element={<DeleteStaffRecord />} />
         <Route path = "/MasterDelete" element={<MasterDelete />} />
         <Route path='ProductManagement' element={<ProductManagement />} />
+        <Route path = "/PumpsManagement" element={<PumpsMangement />} />
         
         <Route path='about' element={<About />} />
         

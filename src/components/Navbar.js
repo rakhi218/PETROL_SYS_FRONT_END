@@ -76,7 +76,13 @@ export default function Navbar() {
 
             <Box>
               <ListItemButton>
-                <ListItemText onClick={()=>navigate("/ProductManagement")} primary={"Pumps Management"} / >
+                <ListItemText onClick={()=>navigate("/ProductManagement")} primary={"Product Management"} / >
+              </ListItemButton>
+            </Box>
+
+            <Box>
+              <ListItemButton>
+                <ListItemText onClick={()=>navigate("/PumpsManagement")} primary={"Pumps Management"} / >
               </ListItemButton>
             </Box>
 
