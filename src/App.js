@@ -13,7 +13,9 @@ import Login from './components/Login'
 import Bonus from './components/Bonus';
 import About from './components/About';
 import Logout from './components/logout';
-import StaffManagement from './components/StaffManagement';
+import CustomerCare from './components/StaffManagement/CustomerCare';
+import SecurityStaff from './components/StaffManagement/SecurityStaff';
+import SeniorStaff from './components/StaffManagement/SeniorStaff';
 import DeleteStaffRecord from './pages/DeleteStaffRecord';
 import MasterDelete from './pages/MasterDelete';
 import ProductManagement from './pages/ProductManagement';
@@ -27,9 +29,9 @@ const router = createBrowserRouter(
         <Route path='bonus/male' element={<Bonus staff="Male" />} />
         <Route path='bonus/female' element={<Bonus staff="Female" />} />
         
-        <Route path='/staff-management/customer-care' element={<StaffManagement staff_type="Customer Care" />} />
-        <Route path='/staff-management/senior' element={<StaffManagement staff_type="Senior" />} />
-        <Route path='/staff-management/security' element={<StaffManagement staff_type="Security" />} />
+        <Route path='/staff-management/customer-care' element={<CustomerCare />} />
+        <Route path='/staff-management/senior' element={<SeniorStaff />} />
+        <Route path='/staff-management/security' element={<SecurityStaff />} />
         <Route path = "/DeleteStaffRecord" element={<DeleteStaffRecord />} />
         <Route path = "/MasterDelete" element={<MasterDelete />} />
         <Route path='ProductManagement' element={<ProductManagement />} />

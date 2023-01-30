@@ -8,15 +8,15 @@ import axios from 'axios';
 
 
 
-import BorderedSection from "./utils/BorderedSection";
+import BorderedSection from "../utils/BorderedSection";
 
 
-function StaffManagement(props) {
+function SecurityStaff() {
   
   useEffect(() => {
   async function GetStaffs() {
     try {
-      const res = await axios.get("https://localhost:7215/api/Staff");
+      const res = await axios.get("https://localhost:7215/api/SecurityStaff");
       console.log(res.data);
       const IDS=[];
       const stff=[]
@@ -61,7 +61,7 @@ async function RetrenchStaff() {
   const obj = {
     tblStaffID : singleId
   }
-  const res = await axios.post("https://localhost:7215/api/Staff/retrench",obj);
+  const res = await axios.post("https://localhost:7215/api/SecurityStaff/retrench",obj);
   console.log(res); 
 }
 
@@ -69,7 +69,7 @@ async function SuspendStaff() {
   const obj = {
     tblStaffID : singleId
   }
-  const res = await axios.post("https://localhost:7215/api/Staff/suspend",obj);
+  const res = await axios.post("https://localhost:7215/api/SecurityStaff/suspend",obj);
   console.log(res);
 }
 
@@ -98,7 +98,7 @@ async function EmployStaff() {
     <>
       <Container maxWidth="md">
         <Typography variant="h6" gutterBottom>
-          Staff Management: {props.staff_type}
+          Staff Management: SecurityStaff
         </Typography>
 
         <Box component="form" onSubmit={handleSubmit} sx={{}}>
@@ -196,4 +196,4 @@ async function EmployStaff() {
   )
 }
 
-export default StaffManagement;
+export default SecurityStaff;
