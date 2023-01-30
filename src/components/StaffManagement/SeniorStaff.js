@@ -73,6 +73,10 @@ async function SuspendStaff() {
   console.log(res);
 }
 
+async function SaveInfo() {
+
+}
+
 async function EmployStaff() {
   
 }
@@ -165,6 +169,9 @@ async function EmployStaff() {
                 </Button>
                 <Button type="button" variant="contained" disabled={false} onClick={EditStaff}>
                   Edit Staff Information
+                </Button>
+                <Button type="button" variant="contained" disabled={false} onClick={SaveInfo}>
+                  Save Staff Information
                 </Button>
                 <Button type="button" variant="contained" color="error" disabled={false} onClick={RetrenchStaff}>
                   Retrench Staff
