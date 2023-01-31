@@ -20,6 +20,8 @@ import DeleteStaffRecord from './pages/DeleteStaffRecord';
 import MasterDelete from './pages/MasterDelete';
 import ProductManagement from './pages/ProductManagement';
 import PumpsMangement from './pages/PumpsManagement';
+import Sales from './pages/Sales';
+import CalculateLitSold from './pages/CalculateLitSold';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,6 +38,8 @@ const router = createBrowserRouter(
         <Route path = "/MasterDelete" element={<MasterDelete />} />
         <Route path='ProductManagement' element={<ProductManagement />} />
         <Route path = "/PumpsManagement" element={<PumpsMangement />} />
+        <Route path = "/Staff" element={<Sales />} />
+        <Route path = "/CalculateLitSold" element={<CalculateLitSold />} />
         
         <Route path='about' element={<About />} />
         
