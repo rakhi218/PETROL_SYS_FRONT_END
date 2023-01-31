@@ -107,7 +107,7 @@ export default function Navbar() {
 
             <Divider variant='middle' />
 
-            <Box>
+            {/* <Box>
               <ListItemButton onClick={handleReportsClick}>
                 <ListItemText primary={"Reports"} />
                 <ListItemIcon>{openReports ? <ExpandLess /> : <ExpandMore />}</ListItemIcon>
@@ -122,7 +122,7 @@ export default function Navbar() {
                   </ListItemButton>
                 </List>
               </Collapse>
-            </Box>
+            </Box> */}
 
             <Divider variant='middle' />
 
@@ -148,11 +148,11 @@ export default function Navbar() {
 
             <Divider variant='middle' />
 
-            <Box>
+            {/* <Box>
               <ListItemButton>
                 <ListItemText primary={"Reports"} />
               </ListItemButton>
-            </Box>
+            </Box> */}
 
             <Divider variant='middle' />
 
