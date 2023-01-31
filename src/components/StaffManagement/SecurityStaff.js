@@ -5,6 +5,8 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
 import axios from 'axios';
+import { Link } from "react-router-dom";
+import Divider from "@mui/material/Divider";
 
 
 
@@ -185,13 +187,25 @@ async function EmployStaff() {
 
         </Box>
 
+        <Divider variant="middle" />
+
         <BorderedSection title="Recall">
           <Container maxWidth="sm">
             <Stack direction="row" spacing={3}>
-              <Button variant="contained" color="success">
+              <Button
+                component={Link}
+                to={`/staff-management/security/suspended-staff`}
+                variant="contained"
+                color="success"
+              >
                 Suspended Staff
               </Button>
-              <Button variant="contained" color="success">
+              <Button
+                component={Link}
+                to={`/staff-management/security/retrenched-staff`}
+                variant="contained"
+                color="success"
+              >
                 Retrenched Staff
               </Button>
             </Stack>
