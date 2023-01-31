@@ -1,0 +1,31 @@
+.head{
+    color:rgb(32, 46, 115) ;
+  }
+
+  .formclass{
+    background-color: rgb(196, 210, 246);
+    resize: vertical;
+    width: 300px;
+    height: 100px;
+    margin: auto;
+    width: 60%;
+    padding: 20px 20px 400px 20px;
+    border: 2px solid rgb(32, 46, 115);
+    justify-content: center;
+    padding-left: 50px;
+  }
+  
+  .compute {
+    background-color: white; 
+    color: rgb(32, 46, 115); 
+    border: 2px solid rgb(32, 46, 115);
+  }
+  
+  .compute:hover {
+    background-color: rgb(32, 46, 115);
+    color: white;
+  }
+
+  .pumpdet{
+    inline-size: 700px;
+  }
