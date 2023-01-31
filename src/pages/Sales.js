@@ -1,12 +1,8 @@
-//sales - operations
 import React from "react";
 import '../styles/staffmgmt.css'
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
-import { useState } from 'react'
-
-//Post Request
-
+import { useState } from 'react';
 
 const Sales = () => {
     const navigate = useNavigate();

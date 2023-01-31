@@ -5,6 +5,8 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
 import axios from 'axios';
+import { Link } from "react-router-dom";
+import Divider from "@mui/material/Divider";
 
 
 
@@ -74,39 +76,17 @@ async function SuspendStaff() {
 }
 
 async function SaveInfo() {
-  try {
-    const obj = {
-      tblStaffID : singleId,
-      tblFirstName : document.getElementById("firstname").value,
-      tblSurname : document.getElementById("surname").value,
-      tblSex : "Male",
-      tblAge : document.getElementById("Age").value,
-      tblAddress : document.getElementById("adress").value,
-      tblPhoneNo : document.getElementById("phone").value,
-      tblNextofKin : document.getElementById("kin_name").value,
-      tblNOKAddress : document.getElementById("kin_address").value,
-      tblNOKPhone : document.getElementById("kin_phone").value,
-      tblStaffGuarantor : document.getElementById("gurantor_name").value,
-      tblStaffGuarantorAddress : document.getElementById("gurantor_address").value,
-      tblStaffGuarantorPhone : document.getElementById("gurantor_phone").value
-    }
-    const res = await axios.put("https://localhost:7215/api/Staff",obj);
-    console.log(res);
-  }catch(err){
-    console.log(err);
-  }
 
 }
 
 async function EmployStaff() {
-  SetAddEmploy(!addEmploy);
+  
 }
 
   const [staffid, setStaffid] = useState([]);
   const [staffs,setStaffs] = useState([]);
   const [editStaffs,setEditStaffs] = useState(true);
   const [singleId,SetSingleStaffID] = useState();
-  const [addEmploy,SetAddEmploy] = useState(false);
 
   const [sex, setSex] = React.useState('');
 
@@ -129,13 +109,15 @@ async function EmployStaff() {
 
         <Box component="form" onSubmit={handleSubmit} sx={{}}>
           <BorderedSection title="Staff ID Number">
-            <TextField id="staff_id"
+            <TextField
+              id="staff_id"
               name="staff_id"
               label="Staff ID"
               margin="normal"
               fullWidth
               onChange={DisplayDetails}
-              select>
+              select
+            >
               {staffid.map((option) => (
                 <MenuItem key={option} value={option} id="StaffID">
                   {option}
@@ -146,83 +128,214 @@ async function EmployStaff() {
 
           <Stack direction="row">
             <BorderedSection title="Personal Details">
-              <TextField id="surname" name="surname"  margin="normal" size="small" required fullWidth disabled={editStaffs}/>
-              <TextField id="firstname" name="firstname"  margin="normal" size="small" required fullWidth disabled={editStaffs}/>
+              <TextField
+                id="surname"
+                name="surname"
+                margin="normal"
+                size="small"
+                required
+                fullWidth
+                disabled={editStaffs}
+              />
+              <TextField
+                id="firstname"
+                name="firstname"
+                margin="normal"
+                size="small"
+                required
+                fullWidth
+                disabled={editStaffs}
+              />
               <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                 <InputLabel id="sex_id">Sex</InputLabel>
                 <Select
                   id="sex"
+                  value={sex}
                   label="Sex"
                   required
-                  disabled={editStaffs}
                   onChange={handleSexChange}
                 >
                   <MenuItem value={"male"}>Male</MenuItem>
                   <MenuItem value={"female"}>Female</MenuItem>
                 </Select>
               </FormControl>
-              <TextField name="age" type="number" size="small" id="Age" disabled={editStaffs}/>
-              <TextField id="adress" name="address"  margin="normal" size="small" required multiline minRows="3" fullWidth disabled={editStaffs}/>
-              <TextField id="phone" name="phone"  margin="normal" size="small" required fullWidth disabled={editStaffs}/>
+              <TextField
+                name="age"
+                type="number"
+                size="small"
+                id="Age"
+                disabled={editStaffs}
+              />
+              <TextField
+                id="adress"
+                name="address"
+                margin="normal"
+                size="small"
+                required
+                multiline
+                minRows="3"
+                fullWidth
+                disabled={editStaffs}
+              />
+              <TextField
+                id="phone"
+                name="phone"
+                margin="normal"
+                size="small"
+                required
+                fullWidth
+                disabled={editStaffs}
+              />
             </BorderedSection>
             <BorderedSection title="Picture">
-              <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Staff" style={{ height: '20rem' }} />
+              <img
+                src="https://randomuser.me/api/portraits/men/75.jpg"
+                alt="Staff"
+                style={{ height: "20rem" }}
+              />
             </BorderedSection>
           </Stack>
 
           <Stack direction="row">
             <BorderedSection title="Next of kin">
-              <TextField name="kin_name"  margin="normal" size="small" id="kin_name" fullWidth disabled={editStaffs}/>
-              <TextField name="kin_address"  margin="normal" size="small" id="kin_address" required multiline minRows="3" fullWidth disabled={editStaffs}/>
-              <TextField name="kin_phone"  margin="normal" size="small" id="kin_phone" required fullWidth disabled={editStaffs}/>
+              <TextField
+                name="kin_name"
+                margin="normal"
+                size="small"
+                id="kin_name"
+                fullWidth
+                disabled={editStaffs}
+              />
+              <TextField
+                name="kin_address"
+                margin="normal"
+                size="small"
+                id="kin_address"
+                required
+                multiline
+                minRows="3"
+                fullWidth
+                disabled={editStaffs}
+              />
+              <TextField
+                name="kin_phone"
+                margin="normal"
+                size="small"
+                id="kin_phone"
+                required
+                fullWidth
+                disabled={editStaffs}
+              />
             </BorderedSection>
             <BorderedSection title="Staff Gurantor">
-              <TextField name="gurantor_name" margin="normal" size="small" id="gurantor_name" fullWidth disabled={editStaffs}/>
-              <TextField name="gurantor_address" margin="normal" size="small" id="gurantor_address" required multiline minRows="3" fullWidth disabled={editStaffs}/>
-              <TextField name="gurantor_phone" margin="normal" size="small" id="gurantor_phone" required fullWidth disabled={editStaffs}/>
+              <TextField
+                name="gurantor_name"
+                margin="normal"
+                size="small"
+                id="gurantor_name"
+                fullWidth
+                disabled={editStaffs}
+              />
+              <TextField
+                name="gurantor_address"
+                margin="normal"
+                size="small"
+                id="gurantor_address"
+                required
+                multiline
+                minRows="3"
+                fullWidth
+                disabled={editStaffs}
+              />
+              <TextField
+                name="gurantor_phone"
+                margin="normal"
+                size="small"
+                id="gurantor_phone"
+                required
+                fullWidth
+                disabled={editStaffs}
+              />
             </BorderedSection>
           </Stack>
 
           <BorderedSection title="Management">
             <Container maxWidth="sm">
               <Stack direction="row" spacing={3}>
-                <Button type="button" variant="contained" disabled={!editStaffs} onClick={EmployStaff}>
+                <Button
+                  type="button"
+                  variant="contained"
+                  disabled={false}
+                  onClick={EmployStaff}
+                >
                   Employ Staff
                 </Button>
-                <Button type="button" variant="contained" disabled={false} onClick={EditStaff}>
+                <Button
+                  type="button"
+                  variant="contained"
+                  disabled={false}
+                  onClick={EditStaff}
+                >
                   Edit Staff Information
                 </Button>
-                <Button type="button" variant="contained" disabled={false} onClick={SaveInfo}>
+                <Button
+                  type="button"
+                  variant="contained"
+                  disabled={false}
+                  onClick={SaveInfo}
+                >
                   Save Staff Information
                 </Button>
-                <Button type="button" variant="contained" color="error" disabled={!editStaffs} onClick={RetrenchStaff}>
+                <Button
+                  type="button"
+                  variant="contained"
+                  color="error"
+                  disabled={false}
+                  onClick={RetrenchStaff}
+                >
                   Retrench Staff
                 </Button>
-                <Button type="button" variant="contained" color="error" disabled={!editStaffs} onClick={SuspendStaff}>
+                <Button
+                  type="button"
+                  variant="contained"
+                  color="error"
+                  disabled={false}
+                  onClick={SuspendStaff}
+                >
                   Suspend Staff
                 </Button>
               </Stack>
             </Container>
           </BorderedSection>
-
         </Box>
+
+        <Divider variant="middle" />
 
         <BorderedSection title="Recall">
           <Container maxWidth="sm">
             <Stack direction="row" spacing={3}>
-              <Button variant="contained" color="success">
+              <Button
+                component={Link}
+                to={`/staff-management/customer-care/suspended-staff`}
+                variant="contained"
+                color="success"
+              >
                 Suspended Staff
               </Button>
-              <Button variant="contained" color="success">
+              <Button
+                component={Link}
+                to={`/staff-management/customer-care/retrenched-staff`}
+                variant="contained"
+                color="success"
+              >
                 Retrenched Staff
               </Button>
             </Stack>
           </Container>
         </BorderedSection>
-
       </Container>
     </>
-  )
+  );
 }
 
 export default CustomerCare;

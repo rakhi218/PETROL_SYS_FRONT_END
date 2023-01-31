@@ -43,37 +43,37 @@ function Bonus({ staff }) {
 
         <Box component="form" onSubmit={handleSubmit} sx={{}}>
           <BorderedSection title="Attendance">
-            <TextField id="ifPresent" name="ifPresent" label="If Present" margin="normal" fullWidth value={100} disabled={true}/>
-            <TextField id="ifAbsent" name="ifAbsent" label="If Absent" margin="normal" fullWidth value={-50} disabled={true}/>
+            <TextField id="ifPresent" name="ifPresent" label="If Present" margin="normal" fullWidth />
+            <TextField id="ifAbsent" name="ifAbsent" label="If Absent" margin="normal" fullWidth />
           </BorderedSection>
 
           <Stack direction="row">
             <BorderedSection title="Target Sales - PMS">
-              <TextField id="Morning" name="pms-morning" margin="normal" fullWidth value={3300} disabled={true}/>
-              <InputWithAbdorment  name="pms-morning-n" type="number" icon={NumbersIcon} size="small" value={100} disabled={true}/>
-              <TextField id="Night" name="pms-night"  margin="normal" fullWidth value={4000} disabled={true}/>
-              <InputWithAbdorment  name="pms-night-n" type="number" icon={NumbersIcon} size="small" value={100} disabled={true}/>
+              <TextField id="Morning" name="pms-morning" label="Morning" margin="normal" fullWidth />
+              <InputWithAbdorment label="N" name="pms-morning-n" type="number" icon={NumbersIcon} size="small" />
+              <TextField id="Night" name="pms-night" label="Night" margin="normal" fullWidth />
+              <InputWithAbdorment label="N" name="pms-night-n" type="number" icon={NumbersIcon} size="small" />
             </BorderedSection>
             <BorderedSection title="Target Sales - DPK">
-              <TextField id="Morning" name="dpk-morning" margin="normal" fullWidth value={3300} disabled={true}/>
-              <InputWithAbdorment  name="dpk-morning-n" type="number" icon={NumbersIcon} size="small" value={100} disabled={true}/>
-              <TextField id="Night" name="dpk-night" margin="normal" fullWidth value={4000} disabled={true}/>
-              <InputWithAbdorment name="dpk-night-n" type="number" icon={NumbersIcon} size="small" value={100} disabled={true}/>
+              <TextField id="Morning" name="dpk-morning" label="Morning" margin="normal" fullWidth />
+              <InputWithAbdorment label="N" name="dpk-morning-n" type="number" icon={NumbersIcon} size="small" />
+              <TextField id="Night" name="dpk-night" label="Night" margin="normal" fullWidth />
+              <InputWithAbdorment label="N" name="dpk-night-n" type="number" icon={NumbersIcon} size="small" />
             </BorderedSection>
           </Stack>
 
           <Stack direction="row">
             <BorderedSection title="Target Sales - AGO">
-              <TextField id="Morning" name="ago-morning" label="Morning" margin="normal" fullWidth value={3300} disabled={true}/>
-              <InputWithAbdorment label="N" name="ago-morning-n" type="number" icon={NumbersIcon} size="small" value={100} disabled={true}/>
-              <TextField id="Night" name="ago-night" label="Night" margin="normal" fullWidth value={4000} disabled={true}/>
-              <InputWithAbdorment label="N" name="ago-night-n" type="number" icon={NumbersIcon} size="small" value={100} disabled={true}/>
+              <TextField id="Morning" name="ago-morning" label="Morning" margin="normal" fullWidth />
+              <InputWithAbdorment label="N" name="ago-morning-n" type="number" icon={NumbersIcon} size="small" />
+              <TextField id="Night" name="ago-night" label="Night" margin="normal" fullWidth />
+              <InputWithAbdorment label="N" name="ago-night-n" type="number" icon={NumbersIcon} size="small" />
             </BorderedSection>
             <BorderedSection title="Target Sales - Bulk Oil">
-              <TextField id="Morning" name="bulkoil-morning" label="Morning" margin="normal" fullWidth value={3300} disabled={true}/>
-              <InputWithAbdorment label="N" name="bulkoil-morning-n" type="number" icon={NumbersIcon} size="small" value={100} disabled={true}/>
-              <TextField id="Night" name="dpk-night" label="Night" margin="normal" fullWidth value={4000} disabled={true}/>
-              <InputWithAbdorment label="N" name="bulkoil-night-n" type="number" icon={NumbersIcon} size="small" value={100} disabled={true}/>
+              <TextField id="Morning" name="bulkoil-morning" label="Morning" margin="normal" fullWidth />
+              <InputWithAbdorment label="N" name="bulkoil-morning-n" type="number" icon={NumbersIcon} size="small" />
+              <TextField id="Night" name="dpk-night" label="Night" margin="normal" fullWidth />
+              <InputWithAbdorment label="N" name="bulkoil-night-n" type="number" icon={NumbersIcon} size="small" />
             </BorderedSection>
           </Stack>
 

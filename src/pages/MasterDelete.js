@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {useState, useEffect} from 'react'
 import { ClickAwayListener } from '@mui/material';
-import '../styles/MasterDelete.css'
+// import './styles/MasterDelete.css'
 
 
 function MasterDelete() {

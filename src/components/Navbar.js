@@ -12,7 +12,7 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import ListItemText from '@mui/material/ListItemText';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import '../frontend.css';
+
 
 const drawerWidth = 240;
 
@@ -107,7 +107,7 @@ export default function Navbar() {
 
             <Divider variant='middle' />
 
-            {/* <Box>
+            <Box>
               <ListItemButton onClick={handleReportsClick}>
                 <ListItemText primary={"Reports"} />
                 <ListItemIcon>{openReports ? <ExpandLess /> : <ExpandMore />}</ListItemIcon>
@@ -122,7 +122,7 @@ export default function Navbar() {
                   </ListItemButton>
                 </List>
               </Collapse>
-            </Box> */}
+            </Box>
 
             <Divider variant='middle' />
 
@@ -148,11 +148,11 @@ export default function Navbar() {
 
             <Divider variant='middle' />
 
-            {/* <Box>
+            <Box>
               <ListItemButton>
                 <ListItemText primary={"Reports"} />
               </ListItemButton>
-            </Box> */}
+            </Box>
 
             <Divider variant='middle' />
 
