@@ -1,0 +1,17 @@
+.formBody{
+    background-color: rgb(196, 210, 246);
+    /* resize: vertical; */
+    width: 400px;
+    height: 60px;
+    margin: auto;
+    padding: 20px 100px 450px 30px;
+    border: 2px solid rgb(32, 46, 115);
+    justify-content: center;
+}
+/* 
+  .formtext{
+    
+        border: 2px solid rgb(32, 46, 115) ;
+        text-align: center;
+        
+  } */

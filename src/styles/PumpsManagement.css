@@ -1,0 +1,37 @@
+.pumpmain{
+    color:  rgb(32, 46, 115);
+}
+
+.head{
+    color:rgb(32, 46, 115) ;
+  }
+  .formclassName{
+    background-color: rgb(196, 210, 246);
+    /* resize: vertical; */
+    width: 400px;
+    height: 60px;
+    margin: auto;
+    padding: 20px 150px 250px 30px;
+    border: 2px solid rgb(32, 46, 115);
+    justify-content: center;
+    
+   
+  }
+  .leftdiv {
+    border: 2px solid rgb(32, 46, 115) ;
+    text-align: center;
+    
+  }
+  .button {
+    background-color: white; 
+    color: rgb(32, 46, 115); 
+    border: 2px solid rgb(32, 46, 115);
+    align-items: center;
+  }
+  
+  .button:hover {
+    background-color: rgb(32, 46, 115);
+    color: white;
+  }
+
+  

@@ -1,0 +1,22 @@
+.head{
+    color:rgb(32, 46, 115) ;
+  }
+  .formclassName{
+    background-color: rgb(196, 210, 246);
+    /* resize: vertical; */
+    width: 500px;
+    height: 60px;
+    margin: auto;
+    padding: 20px 100px 300px 30px;
+    border: 2px solid rgb(32, 46, 115);
+    justify-content: center;
+  }
+
+  .button{
+    align-self : center; 
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    
+  } 
+  
