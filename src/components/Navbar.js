@@ -12,7 +12,7 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import ListItemText from '@mui/material/ListItemText';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
+import '../frontend.css';
 
 const drawerWidth = 240;
 

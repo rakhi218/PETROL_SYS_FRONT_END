@@ -1,5 +1,10 @@
+//sales - operations
 import React from "react";
+<<<<<<< HEAD:src/pages/Sales.js
 import '../styles/staffmgmt.css'
+=======
+import './styles/staffmgmt.css';
+>>>>>>> 3c6aeaebe5263197b861f5536f178acee045962b:src/pages/Staff.management.js
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import { useState } from 'react'

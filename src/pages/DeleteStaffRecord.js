@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState,useEffect } from 'react'
 
-//import './DeleteStaffRecord.css'
+import '../styles/DeleteStaffRecord.css'
 function DeleteStaffRecord (){
 
   const [staffs,setStaffs] = useState([]);
