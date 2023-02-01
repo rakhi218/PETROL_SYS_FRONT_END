@@ -7,7 +7,8 @@ import InputLabel from "@mui/material/InputLabel";
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import Divider from "@mui/material/Divider";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 import BorderedSection from "../utils/BorderedSection";
@@ -57,6 +58,7 @@ async function DisplayDetails(event) {
 
 async function EditStaff() {
   setEditStaffs(!editStaffs);
+  toast("Staff Edited Successfully!");
 }
 
 async function RetrenchStaff() {
@@ -65,6 +67,7 @@ async function RetrenchStaff() {
   }
   const res = await axios.post("https://localhost:7215/api/Staff/retrench",obj);
   console.log(res); 
+   toast("Staff Retrenched");
 }
 
 async function SuspendStaff() {
@@ -73,6 +76,7 @@ async function SuspendStaff() {
   }
   const res = await axios.post("https://localhost:7215/api/Staff/suspend",obj);
   console.log(res);
+  toast("Staff Suspended");
 }
 
 async function SaveInfo() {
@@ -105,6 +109,7 @@ async function SaveInfo() {
   }catch(err){
     console.log(err);
   }
+  toast("Staff Information Saved!");
 }
 
 async function EmployStaff() {
@@ -377,6 +382,7 @@ async function EmployStaff() {
           </Container>
         </BorderedSection>
       </Container>
+ <ToastContainer />
     </>
   );
 }
