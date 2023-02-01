@@ -1,5 +1,7 @@
 import React, { useState,useEffect } from "react";
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // import '../styles/PumpsManagement.css'
 
@@ -70,7 +72,7 @@ function PumpsManagement (){
           console.log(err);
         }
     }
-
+    toast("Your entry has been Saved! ");
   }
 
   async function DeletePump(){
@@ -153,7 +155,7 @@ function PumpsManagement (){
     </form>
 
     </div>
-
+      <ToastContainer />
     </>
 
   )
