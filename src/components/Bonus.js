@@ -9,7 +9,8 @@ import Stack from '@mui/material/Stack';
 import Button from "@mui/material/Button";
 
 import BorderedSection from "./utils/BorderedSection";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function InputWithAbdorment(props) {
@@ -33,6 +34,9 @@ function Bonus({ staff }) {
     e.preventDefault();
     console.log("Changes Saved");
   }
+   const bonusToast = () => {
+    toast("Changes Saved Successfully!");
+   }
 
   return (
     <>
@@ -82,6 +86,7 @@ function Bonus({ staff }) {
               type="submit"
               fullWidth
               variant="contained"
+              onClick={bonusToast}
             >
               Save Changes
             </Button>
@@ -90,6 +95,7 @@ function Bonus({ staff }) {
 
 
       </Container>
+      <ToastContainer />
     </>
   )
 }
