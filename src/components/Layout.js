@@ -7,12 +7,17 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { Outlet, Link, Navigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import LogoutIcon from '@mui/icons-material/Logout';
-
 import Navbar from "./Navbar";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Layout() {
 
   const loggedIn = localStorage.getItem('loggedIn');
+  
+  const layoutToast = () => {
+    toast("Logged out Successfully!");
+   }
 
   return (
     <>
@@ -30,7 +35,7 @@ function Layout() {
                 </Typography>
               </Box>
               <Link to="/logout" style={{ textDecoration: 'none', color: '#fff' }}>
-                <Button color="inherit">Logout <LogoutIcon /></Button>
+                <Button color="inherit" onClick={layoutToast}>Logout <LogoutIcon /></Button>
               </Link>
             </Toolbar>
           </AppBar>
@@ -46,7 +51,7 @@ function Layout() {
       }
 
       {!loggedIn && <Navigate to='login' />}
-
+    <ToastContainer />
     </>
   );
 }
