@@ -2,6 +2,9 @@
 import React from 'react'
 import axios from 'axios'
 import {useState, useEffect} from 'react'
+import '../styles/prodMgmt.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 async function submitdata(event) {
   event.preventDefault();
@@ -26,7 +29,7 @@ async function submitdata(event) {
       },
     })
     document.getElementById("PumpForm").submit();
-    console.log(res);
+    toast("Details are updated");
   }catch(err){
     console.log(err)
   }
@@ -59,10 +62,11 @@ function ProductManagement() {
     }else{
       setUnlockClicked(true);
     }
-    
+    toast("Editing Enabled");
   }
 
   return (
+    <>
     <div>
 	  <h1 className= "heading" align = "center">Product Management </h1>
       <form onSubmit={submitdata} id="PumpForm">
@@ -80,6 +84,8 @@ function ProductManagement() {
      <button type = "button" className="button" onClick={enableEditing}>Cancel </button>
       </form>
 	</div>
+  <ToastContainer />
+  </>
   )
 }
 

@@ -76,17 +76,47 @@ async function SuspendStaff() {
 }
 
 async function SaveInfo() {
-
+  try {
+    const obj = {
+      tblCaptaincy : true,
+      tblSurname : document.getElementById("surname").value,
+      tblFirstName : document.getElementById("firstname").value,
+      tblSex : sex,
+      tblAge : parseInt(document.getElementById("Age").value),
+      tblAddress : document.getElementById("adress").value,
+      tblPhoneNo : document.getElementById("phone").value,
+      tblNextofKin : document.getElementById("kin_name").value,
+      tblNOKAddress : document.getElementById("kin_address").value,
+      tblNOKPhone : document.getElementById("kin_phone").value,
+      tblStaffGuarantor : document.getElementById("gurantor_name").value,
+      tblStaffGuarantorAddress : document.getElementById("gurantor_address").value,
+      tblStaffGuarantorPhone : document.getElementById("gurantor_phone").value
+    }
+    if(employ == false){
+      obj.tblStaffID = document.getElementById("StaffID").value;
+      console.log(obj);
+      const res = await axios.post("https://localhost:7215/api/Staff",obj);
+      console.log(res)
+    }else{
+      obj.tblStaffID = singleId;
+      const res = await axios.put("https://localhost:7215/api/Staff",obj);
+      console.log(res)
+    }
+  }catch(err){
+    console.log(err);
+  }
 }
 
 async function EmployStaff() {
-  
+  SetEmploy(!employ);
+  setEditStaffs(!editStaffs);
 }
 
   const [staffid, setStaffid] = useState([]);
   const [staffs,setStaffs] = useState([]);
   const [editStaffs,setEditStaffs] = useState(true);
   const [singleId,SetSingleStaffID] = useState();
+  const [employ,SetEmploy] = useState(true);
 
   const [sex, setSex] = React.useState('');
 
@@ -116,6 +146,7 @@ async function EmployStaff() {
               margin="normal"
               fullWidth
               onChange={DisplayDetails}
+              disabled={!employ}
               select
             >
               {staffid.map((option) => (
@@ -124,6 +155,18 @@ async function EmployStaff() {
                 </MenuItem>
               ))}
             </TextField>
+          </BorderedSection>
+
+          <BorderedSection title="Staff ID Number">
+          <TextField
+                id="StaffID"
+                name="staffID"
+                margin="normal"
+                size="small"
+                required
+                fullWidth
+                disabled={employ}
+              />
           </BorderedSection>
 
           <Stack direction="row">
