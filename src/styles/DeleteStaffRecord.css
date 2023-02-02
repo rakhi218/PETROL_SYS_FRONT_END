@@ -1,0 +1,27 @@
+.body {
+  background-color: aliceblue;
+  height: 100vh;
+  padding: 10px; 
+}
+
+.head{
+    color:rgb(32, 46, 115) ;
+  }
+  .formclassName{
+    background-color: aliceblue;
+    /* resize: vertical; */
+    width: 500px;
+    height: 60px;
+    margin: auto;
+    padding: 20px 100px 300px 40px; 
+    border: 2px solid rgb(32, 46, 115);
+    justify-content: center;
+  }
+
+  .button{
+    align-self : center; 
+    /* display: flex; */
+    justify-content: space-between;
+    align-items: center;
+  } 
+  

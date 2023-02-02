@@ -1,0 +1,34 @@
+.SalesForm{
+    background-color: aliceblue;
+}
+.col-md-6{
+    margin-left: 20px;
+}
+.StaffID{
+    margin-left: 20px;
+}
+.selectStaff{
+    margin-left: 20px;
+    margin-right: 10px;
+}
+.Date{
+    margin-left: 20px;
+
+}
+.Shifts{
+    margin-left: 20px;
+    padding-top: 10px;
+}
+.ShiftsSelect{
+    margin-right: 10px;
+}
+.SalesInfo{
+    margin-left: 20px;
+}
+.litres{
+    padding-top: 5px;
+}
+.Present_Absent{
+    margin-left: 20px;
+    padding-top: 10px;
+}
