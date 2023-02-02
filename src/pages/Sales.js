@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import {useLocation} from 'react-router-dom';
 import React, { useState,useEffect } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Sales = () => {
     const navigate = useNavigate();
@@ -51,6 +53,7 @@ const Sales = () => {
         }catch(err){
             console.log(err);
         }
+          toast("Record saved successfully!");
       }
 
       async function HelpNavigate() {
@@ -71,7 +74,8 @@ const Sales = () => {
 
       const [staffid, setStaffid] = useState([]);
       const [staffs,setStaffs] = useState([]);
-
+   
+    
     return (
         <>
            <br/> <h1 align="center" class="head">Staff Management</h1>
@@ -119,6 +123,7 @@ const Sales = () => {
             <button type = "button" class="button" onClick={SaveRecord}>Save Record </button>&ensp;&ensp;&ensp;&ensp;
             <button type = "button" class="button">UnderBonnet <br/></button>
             </div> </form>
+                <ToastContainer />
         </>
     )
 }

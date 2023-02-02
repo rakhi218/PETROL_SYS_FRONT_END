@@ -7,7 +7,8 @@ import InputLabel from "@mui/material/InputLabel";
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import Divider from "@mui/material/Divider";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 import BorderedSection from "../utils/BorderedSection";
@@ -57,14 +58,16 @@ async function DisplayDetails(event) {
 
 async function EditStaff() {
   setEditStaffs(!editStaffs);
+  toast("Staff Edited Successfully!");
 }
 
-async function RetrenchStaff() {
+async function RetrenchStaff() {git 
   const obj = {
     tblStaffID : singleId
   }
   const res = await axios.post("https://localhost:7215/api/Staff/retrench",obj);
   console.log(res); 
+  toast("Staff Retrenched");
 }
 
 async function SuspendStaff() {
@@ -73,20 +76,52 @@ async function SuspendStaff() {
   }
   const res = await axios.post("https://localhost:7215/api/Staff/suspend",obj);
   console.log(res);
+  toast("Staff Suspended");
 }
 
 async function SaveInfo() {
-
+  try {
+    const obj = {
+      tblCaptaincy : true,
+      tblSurname : document.getElementById("surname").value,
+      tblFirstName : document.getElementById("firstname").value,
+      tblSex : sex,
+      tblAge : parseInt(document.getElementById("Age").value),
+      tblAddress : document.getElementById("adress").value,
+      tblPhoneNo : document.getElementById("phone").value,
+      tblNextofKin : document.getElementById("kin_name").value,
+      tblNOKAddress : document.getElementById("kin_address").value,
+      tblNOKPhone : document.getElementById("kin_phone").value,
+      tblStaffGuarantor : document.getElementById("gurantor_name").value,
+      tblStaffGuarantorAddress : document.getElementById("gurantor_address").value,
+      tblStaffGuarantorPhone : document.getElementById("gurantor_phone").value
+    }
+    if(employ == false){
+      obj.tblStaffID = document.getElementById("StaffID").value;
+      console.log(obj);
+      const res = await axios.post("https://localhost:7215/api/Staff",obj);
+      console.log(res)
+    }else{
+      obj.tblStaffID = singleId;
+      const res = await axios.put("https://localhost:7215/api/Staff",obj);
+      console.log(res)
+    }
+  }catch(err){
+    console.log(err);
+  }
+  toast("Staff Information Saved!");
 }
 
 async function EmployStaff() {
-  
+  SetEmploy(!employ);
+  setEditStaffs(!editStaffs);
 }
 
   const [staffid, setStaffid] = useState([]);
   const [staffs,setStaffs] = useState([]);
   const [editStaffs,setEditStaffs] = useState(true);
   const [singleId,SetSingleStaffID] = useState();
+  const [employ,SetEmploy] = useState(true);
 
   const [sex, setSex] = React.useState('');
 
@@ -116,6 +151,7 @@ async function EmployStaff() {
               margin="normal"
               fullWidth
               onChange={DisplayDetails}
+              disabled={!employ}
               select
             >
               {staffid.map((option) => (
@@ -126,7 +162,18 @@ async function EmployStaff() {
             </TextField>
           </BorderedSection>
 
-          
+          <BorderedSection title="Staff ID Number">
+          <TextField
+                id="StaffID"
+                name="staffID"
+                margin="normal"
+                size="small"
+                required
+                fullWidth
+                disabled={employ}
+              />
+          </BorderedSection>
+
 
           <Stack direction="row">
             <BorderedSection title="Personal Details">
@@ -336,6 +383,7 @@ async function EmployStaff() {
           </Container>
         </BorderedSection>
       </Container>
+ <ToastContainer />
     </>
   );
 }

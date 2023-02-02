@@ -2,6 +2,9 @@ import axios from 'axios';
 import React, { useState,useEffect } from 'react'
 
 //import './DeleteStaffRecord.css'
+ import { ToastContainer, toast } from 'react-toastify';
+ import 'react-toastify/dist/ReactToastify.css';
+
 function DeleteStaffRecord (){
 
   const [staffs,setStaffs] = useState([]);
@@ -42,6 +45,7 @@ function DeleteStaffRecord (){
     }catch(err){
       console.log(err)
     }
+     toast("Staff Record Deleted Successfully!");
   }
 
   useEffect(() => {
@@ -90,6 +94,7 @@ function DeleteStaffRecord (){
     <button type = "button" className="button" onClick={showDetails}> Show Details </button>
     </form>
     </div>
+     <ToastContainer /> 
     </>
   )
 }

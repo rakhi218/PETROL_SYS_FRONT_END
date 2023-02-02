@@ -11,7 +11,8 @@ import Paper from '@mui/material/Paper';
 import Alert from '@mui/material/Alert';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
 
@@ -40,6 +41,10 @@ function Login() {
   // const handleUsernameChange = (e) => {
   //   setUsername(e.value);
   // }
+  
+   const diffToast = () => {
+   toast("Login Successful!");
+  }
 
   return (
     <>
@@ -101,6 +106,7 @@ function Login() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                 onClick = {diffToast}
               >
                 Log In
               </Button>
@@ -109,6 +115,7 @@ function Login() {
           </Box>
         </Grid>
       </Grid>
+      <ToastContainer />
     </>
   );
 }
