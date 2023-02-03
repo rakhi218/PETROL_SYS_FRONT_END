@@ -82,13 +82,13 @@ const Sales = () => {
     });
   }
 
-  async function EnableCalculate(){
-    SetDisableCalculate(!disableCalculate);
+  function EnableCalculate(allow){
+    SetDisableCalculate(allow);
   }
 
   const [staffid, setStaffid] = useState([]);
   const [staffs, setStaffs] = useState([]);
-  const [disableCalculate,SetDisableCalculate] = useState(false);
+  const [disableCalculate,SetDisableCalculate] = useState(true);
 
   return (
     <body>
@@ -156,22 +156,25 @@ const Sales = () => {
                 type="radio"
                 value="Present"
                 name="attendance"
+                onClick={e => EnableCalculate(false)}
               /> Present <br />
               <input
                 type="radio"
                 value="Absent"
                 name="attendance"
+                onClick={e => EnableCalculate(true)}
               /> Absent <br />
               <input
                 type="radio"
                 value="Off With Permisssion"
                 name="attendance"
+                onClick={e => EnableCalculate(true)}
               />{" "}
               Absent with Permission
               <br />
-              <input type="radio" value="Off" name="attendance" /> Off
+              <input type="radio" value="Off" name="attendance" onClick={e => EnableCalculate(true)}/> Off
             </div>
-            <button style={{marginLeft:"20px"}}type="button" class="buttonn" onClick={HelpNavigate} disable={disableCalculate}>
+            <button style={{marginLeft:"20px"}}type="button" class="buttonn" onClick={HelpNavigate} disabled={disableCalculate}>
               Calculate{" "}
             </button>
             
