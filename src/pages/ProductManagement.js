@@ -26,6 +26,7 @@ async function submitdata(event) {
       data: obj,
       headers: {
         'Content-Type': 'application/json',
+        'Authorization':'Bearer'+" "+localStorage.getItem("Token")
       },
     })
     toast("Product data updated");
@@ -44,7 +45,7 @@ function ProductManagement() {
   useEffect(() => {
     async function axiosReq(){
       try {
-        const res = await axios.get("https://localhost:7119/api/product");
+        const res = await axios.get("https://localhost:7119/api/product",{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
         document.getElementById("AGO").value = res.data[0].tblCost;
         document.getElementById("BULK").value = res.data[1].tblCost;
         document.getElementById("PMS").value = res.data[3].tblCost;

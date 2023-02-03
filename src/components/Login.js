@@ -24,9 +24,10 @@ function Login() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     try {
-      const res = await axios.post("https://localhost:7223/api/AdminLogin",{tblUsername : data.get('username'),tblPassword : data.get('password')});
+      const res = await axios.post("https://localhost:7223/api/AdminLogin/Authenticate",{tblUsername : data.get('username'),tblPassword : data.get('password')});
       if (res.data.result) {
         localStorage.setItem('loggedIn', true);
+        localStorage.setItem('Token', res.data.message);
         navigate('/');
       }
       else {

@@ -14,7 +14,7 @@ function CalculateLitSold() {
   useEffect(() => {
     async function GetPumps() {
       try {
-        const res = await axios.get("https://localhost:7144/api/pumpmanagement");
+        const res = await axios.get("https://localhost:7144/api/pumpmanagement",{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
         console.log(res.data);
         const IDS=[];
         const stff=[]
@@ -24,7 +24,7 @@ function CalculateLitSold() {
       })
       setPumpIds(IDS);
       setPumps(stff);
-      const products = await axios.get("https://localhost:7119/api/product");
+      const products = await axios.get("https://localhost:7119/api/product",{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
       const prds=[]
       products.data.map((record) => {
         prds.push(record);
@@ -98,7 +98,7 @@ function CalculateLitSold() {
         }
 
       console.log(obj);
-      const res = await axios.post("https://localhost:7086/api/PumpSales/CreatePumpRecordEntry",obj);
+      const res = await axios.post("https://localhost:7086/api/PumpSales/CreatePumpRecordEntry",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
       toast("Pump record updated");
        navigate("/Staff",{
         state : {

@@ -17,7 +17,7 @@ function DeleteStaffRecord (){
       tblDate : document.getElementById("AttaindanceDate").value
     }
     try {
-      const res = await axios.post("https://localhost:7086/api/StaffAttendance",obj);
+      const res = await axios.post("https://localhost:7086/api/StaffAttendance",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
       console.log(res);
       document.getElementById("attendance").value = res.data.tblAttendance;
       document.getElementById("pump").value = res.data.tblShiftPump;
@@ -36,7 +36,7 @@ function DeleteStaffRecord (){
     } 
     console.log(obj);
     try {
-      const res = await axios.post("https://localhost:7086/api/StaffAttendance/deleteStaff",obj);
+      const res = await axios.post("https://localhost:7086/api/StaffAttendance/deleteStaff",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
       console.log(res);
       document.getElementById("AttaindanceDate").value="";
       document.getElementById("pump").value = "";
@@ -52,7 +52,7 @@ function DeleteStaffRecord (){
   useEffect(() => {
     async function GetStaffData() {
       try {
-        const res = await axios.get("https://localhost:7215/api/staff");
+        const res = await axios.get("https://localhost:7215/api/staff",{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
         console.log(res);
         setStaffs(res.data);
       }catch(err){

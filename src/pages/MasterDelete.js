@@ -17,7 +17,7 @@ function MasterDelete() {
         
         async function getAllPumpsRecord() {
             try {
-                const res = await axios.get("https://localhost:7144/api/PumpManagement");
+                const res = await axios.get("https://localhost:7144/api/PumpManagement",{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
                 const l=[]
                 const r=[]
                 await res.data.map((record) => {
@@ -43,7 +43,7 @@ function MasterDelete() {
             tblPumpID:index,
             tblFinalLitres:readings[index-1]
         }
-        const res = await axios.post("https://localhost:7086/api/RemovePump",obj);
+        const res = await axios.post("https://localhost:7086/api/RemovePump",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
         console.log(res.data);
         document.getElementById("PumpNumber").value = res.data.tblPumpID;
         document.getElementById("PumpDate1").value = res.data.tblDate1;
@@ -65,7 +65,7 @@ function MasterDelete() {
             tblDate1 : document.getElementById("PumpDate1").value,
             tblShift : document.getElementById("PumpShift").value
         }
-        const res = await axios.post("https://localhost:7086/api/RemovePump/deletepump",obj);
+        const res = await axios.post("https://localhost:7086/api/RemovePump/deletepump",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
         toast("Deleted Pump Record");
         document.getElementById("pumpForm").submit();
         console.log(res);

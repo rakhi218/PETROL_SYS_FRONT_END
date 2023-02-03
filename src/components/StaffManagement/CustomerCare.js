@@ -19,7 +19,7 @@ function CustomerCare() {
   useEffect(() => {
   async function GetStaffs() {
     try {
-      const res = await axios.get("https://localhost:7215/api/Staff");
+      const res = await axios.get("https://localhost:7215/api/Staff",{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
       console.log(res.data);
       const IDS=[];
       const stff=[]
@@ -64,7 +64,7 @@ async function RetrenchStaff() {
   const obj = {
     tblStaffID : singleId
   }
-  const res = await axios.post("https://localhost:7215/api/Staff/retrench",obj);
+  const res = await axios.post("https://localhost:7215/api/Staff/retrench",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
   console.log(res); 
    toast("Staff Retrenched");
    document.getElementById("customerForm").submit();
@@ -74,7 +74,7 @@ async function SuspendStaff() {
   const obj = {
     tblStaffID : singleId
   }
-  const res = await axios.post("https://localhost:7215/api/Staff/suspend",obj);
+  const res = await axios.post("https://localhost:7215/api/Staff/suspend",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
   console.log(res);
   toast("Staff Suspended");
   document.getElementById("customerForm").submit();
@@ -100,11 +100,11 @@ async function SaveInfo() {
     if(employ == false){
       obj.tblStaffID = document.getElementById("StaffID").value;
       console.log(obj);
-      const res = await axios.post("https://localhost:7215/api/Staff",obj);
+      const res = await axios.post("https://localhost:7215/api/Staff",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
       console.log(res)
     }else{
       obj.tblStaffID = singleId;
-      const res = await axios.put("https://localhost:7215/api/Staff",obj);
+      const res = await axios.put("https://localhost:7215/api/Staff",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
       console.log(res)
     }
   }catch(err){

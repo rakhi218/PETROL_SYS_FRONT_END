@@ -66,7 +66,7 @@ function RetrenchedStaff(props) {
 
     axios
 
-      .get(`${apiServerPrefix}/getRetrenchedStaffs`)
+      .get(`${apiServerPrefix}/getRetrenchedStaffs`, {headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}})
 
       //axios.get('https://randomuser.me/api/?results=5&inc=name,login')
 
@@ -92,7 +92,7 @@ function RetrenchedStaff(props) {
 
     axios
 
-      .post(apiServerPrefix + "/recallRetrench" , {tblStaffID:id})
+      .post(apiServerPrefix + "/recallRetrench" , {tblStaffID:id},{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}})
 
       .then((res) => {
 

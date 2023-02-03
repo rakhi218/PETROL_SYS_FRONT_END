@@ -17,7 +17,7 @@ const Sales = () => {
   useEffect(() => {
     async function GetStaffs() {
       try {
-        const res = await axios.get("https://localhost:7215/api/Staff");
+        const res = await axios.get("https://localhost:7215/api/Staff",{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
         console.log(res.data);
         const IDS = [];
         const stff = [];
@@ -56,7 +56,8 @@ const Sales = () => {
       console.log(obj);
       const res = await axios.post(
         "https://localhost:7086/api/PumpSales/CreateSalesEntry",
-        obj
+        obj,
+        {headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}}
       );
       document.getElementById("salesForm").submit();
       console.log(res);

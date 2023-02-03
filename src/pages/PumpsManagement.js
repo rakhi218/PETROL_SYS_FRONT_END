@@ -10,7 +10,7 @@ function PumpsManagement (){
   useEffect(() => {
     async function GetPumps() {
       try {
-        const res = await axios.get("https://localhost:7144/api/pumpmanagement");
+        const res = await axios.get("https://localhost:7144/api/pumpmanagement",{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
         console.log(res.data);
         const IDS=[];
         const stff=[]
@@ -53,7 +53,7 @@ function PumpsManagement (){
           tblLastReading : 0,
           tblResetValue : document.getElementById("highval").value,
         }
-        const res = await axios.post("https://localhost:7144/api/pumpmanagement",obj);
+        const res = await axios.post("https://localhost:7144/api/pumpmanagement",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
         console.log(res);
         toast("New Pump Created");
         document.getElementById("pumpForm").submit();
@@ -71,7 +71,7 @@ function PumpsManagement (){
             tblLastReading : pumpDetails.tblLastReading,
             tblResetValue : document.getElementById("highval").value
           }
-          const res = await axios.post("https://localhost:7144/api/pumpmanagement/updatepump",obj);
+          const res = await axios.post("https://localhost:7144/api/pumpmanagement/updatepump",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
           console.log(res);
           toast("Updated Pump Record");
           document.getElementById("pumpForm").submit();
@@ -90,7 +90,7 @@ function PumpsManagement (){
         tblLastReading : 1000,
         tblResetValue : 0
       }
-      const res = await axios.post("https://localhost:7144/api/pumpmanagement/deletepump",obj);
+      const res = await axios.post("https://localhost:7144/api/pumpmanagement/deletepump",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
       console.log(res);
       toast("Deleted Pump Record");
       document.getElementById("pumpForm").submit();

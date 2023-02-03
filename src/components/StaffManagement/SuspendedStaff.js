@@ -66,7 +66,7 @@ function SuspendedStaff(props) {
 
     axios
 
-      .get(`${apiServerPrefix}/getSuspendedStaffs`)
+      .get(`${apiServerPrefix}/getSuspendedStaffs`,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}})
 
       //axios.get('https://randomuser.me/api/?results=5&inc=name,login')
 
@@ -92,7 +92,7 @@ function SuspendedStaff(props) {
 
     axios
 
-      .post(apiServerPrefix + "/recallSuspend", { tblStaffID: id })
+      .post(apiServerPrefix + "/recallSuspend", { tblStaffID: id },{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}})
 
       .then((res) => {
 

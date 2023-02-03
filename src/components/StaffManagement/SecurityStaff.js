@@ -18,7 +18,7 @@ function SecurityStaff() {
   useEffect(() => {
   async function GetStaffs() {
     try {
-      const res = await axios.get("https://localhost:7215/api/SecurityStaff");
+      const res = await axios.get("https://localhost:7215/api/SecurityStaff",{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
       console.log(res.data);
       const IDS=[];
       const stff=[]
@@ -63,7 +63,7 @@ async function RetrenchStaff() {
   const obj = {
     tblStaffID : singleId
   }
-  const res = await axios.post("https://localhost:7215/api/SecurityStaff/retrench",obj);
+  const res = await axios.post("https://localhost:7215/api/SecurityStaff/retrench",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
   console.log(res); 
   toast("staff is retrenched");
   document.getElementById("securityForm").submit();
@@ -73,7 +73,7 @@ async function SuspendStaff() {
   const obj = {
     tblStaffID : singleId
   }
-  const res = await axios.post("https://localhost:7215/api/SecurityStaff/suspend",obj);
+  const res = await axios.post("https://localhost:7215/api/SecurityStaff/suspend",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
   console.log(res);
   toast("staff is suspended");
   document.getElementById("securityForm").submit();
@@ -99,11 +99,11 @@ async function SaveInfo() {
     if(employ == false){
       obj.tblStaffID = document.getElementById("StaffID").value;
       console.log(obj);
-      const res = await axios.post("https://localhost:7215/api/SecurityStaff",obj);
+      const res = await axios.post("https://localhost:7215/api/SecurityStaff",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
       console.log(res)
     }else{
       obj.tblStaffID = singleId;
-      const res = await axios.put("https://localhost:7215/api/SecurityStaff",obj);
+      const res = await axios.put("https://localhost:7215/api/SecurityStaff",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
       console.log(res)
     }
     toast("staff information saved");

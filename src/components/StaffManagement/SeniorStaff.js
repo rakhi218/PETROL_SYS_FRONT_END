@@ -18,7 +18,7 @@ function SeniorStaff() {
   useEffect(() => {
   async function GetStaffs() {
     try {
-      const res = await axios.get("https://localhost:7215/api/SeniorStaff");
+      const res = await axios.get("https://localhost:7215/api/SeniorStaff",{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
       console.log(res.data);
       const IDS=[];
       const stff=[]
@@ -63,7 +63,7 @@ async function RetrenchStaff() {
   const obj = {
     tblStaffID : singleId
   }
-  const res = await axios.post("https://localhost:7215/api/SeniorStaff/retrench",obj);
+  const res = await axios.post("https://localhost:7215/api/SeniorStaff/retrench",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
   console.log(res); 
   toast("Staff is retrenched");
   document.getElementById("seniorForm").submit();
@@ -73,7 +73,7 @@ async function SuspendStaff() {
   const obj = {
     tblStaffID : singleId
   }
-  const res = await axios.post("https://localhost:7215/api/SeniorStaff/suspend",obj);
+  const res = await axios.post("https://localhost:7215/api/SeniorStaff/suspend",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
   console.log(res);
   toast("Staff is suspended");
   document.getElementById("seniorForm").submit();
@@ -99,11 +99,11 @@ async function SaveInfo() {
     if(employ == false){
       obj.tblStaffID = document.getElementById("StaffID").value;
       console.log(obj);
-      const res = await axios.post("https://localhost:7215/api/SeniorStaff",obj);
+      const res = await axios.post("https://localhost:7215/api/SeniorStaff",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
       console.log(res)
     }else{
       obj.tblStaffID = singleId;
-      const res = await axios.put("https://localhost:7215/api/SeniorStaff",obj);
+      const res = await axios.put("https://localhost:7215/api/SeniorStaff",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
       console.log(res)
     }
     toast("Staff information is saved");
