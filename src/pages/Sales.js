@@ -45,7 +45,7 @@ const Sales = () => {
       const obj = {
         tblDate: state.tblDate,
         tblStaffID: state.tblStaffID,
-        tblAttendance: val,
+        tblAttendance: state.tblAttendance,
         tblShift: state.tblShift,
         tblShiftPump: state.tblShiftPump,
         tblshiftLitres: state.tblshiftLitres,
@@ -59,8 +59,8 @@ const Sales = () => {
         obj,
         {headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}}
       );
-      document.getElementById("salesForm").submit();
       console.log(res);
+      // document.getElementById("salesForm").submit();
     } catch (err) {
       console.log(err);
     }

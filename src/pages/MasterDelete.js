@@ -21,7 +21,7 @@ function MasterDelete() {
                 const l=[]
                 const r=[]
                 await res.data.map((record) => {
-                    l.push(record.tblPumpID);
+                    l.push(parseInt(record.tblPumpID));
                     r.push(record.tblLastReading);
                 })
                 setPumps(l);
@@ -35,13 +35,15 @@ function MasterDelete() {
 
      
     async function Populate() {
-        const index = parseInt(document.getElementById("PumpIDS").value);
-        document.getElementById("lastreading").value = readings[index-1];
+        const val = parseInt(document.getElementById("PumpIDS").value);
+        const index = pumps.indexOf(val);
+        document.getElementById("lastreading").value = readings[index];
         console.log(index);
         console.log(readings)
+        console.log(pumps)
         const obj ={
-            tblPumpID:index,
-            tblFinalLitres:readings[index-1]
+            tblPumpID:val,
+            tblFinalLitres:readings[index]
         }
         const res = await axios.post("https://localhost:7086/api/RemovePump",obj,{headers:{'Authorization':'Bearer'+" "+localStorage.getItem("Token")}});
         console.log(res.data);

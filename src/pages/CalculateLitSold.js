@@ -110,7 +110,8 @@ function CalculateLitSold() {
         tblDate : state.date,
         tblStaffID : state.staff_id,
         tblShift : state.shift,
-        tblStaffName : state.staff_name
+        tblStaffName : state.staff_name,
+        tblAttendance : "Present"
         }
       });
     }catch(err){
